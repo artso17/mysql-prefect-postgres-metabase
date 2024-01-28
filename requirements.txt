@@ -1,0 +1,5 @@
+polars-lts-cpu[numpy,pyarrow,connectorx]
+sqlalchemy
+mysql-connector-python
+psycopg2-binary
+prefect

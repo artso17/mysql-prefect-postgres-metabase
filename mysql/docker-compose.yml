@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  mysql-db:
+    container_name: mysql-db
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=mysql
+      - MYSQL_USER=mysql
+      - MYSQL_ROOT=root
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_PORT=3306
+    ports:
+      - 3307:3306/tcp
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - db
+
+volumes:
+  mysql_data:
+    name: mysql_data
+    external: true
+
+networks:
+  db:
+    name: rdbms
+    external: true
