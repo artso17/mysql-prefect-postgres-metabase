@@ -8,13 +8,6 @@ services:
     - ./dev/urandom:/dev/random:ro
     ports:
       - 3000:3000
-    environment:
-      MB_DB_TYPE: postgres
-      MB_DB_DBNAME: metabase
-      MB_DB_PORT: 5432
-      MB_DB_USER: postgres
-      MB_DB_PASS: postgres
-      MB_DB_HOST: postgres-db
     networks:
       - metanet
     healthcheck:
@@ -23,7 +16,7 @@ services:
       timeout: 5s
       retries: 5
 
-    
+
 networks:
   metanet:
     name : rdbms

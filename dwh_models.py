@@ -1,7 +1,7 @@
+# Import all necessary libraries
 from typing import List,Optional
 from datetime import datetime
-import polars as pl 
-from sqlalchemy import insert,ForeignKey
+from sqlalchemy import ForeignKey
 from sqlalchemy.engine import create_engine
 from sqlalchemy.orm import (DeclarativeBase,
                             Mapped,
@@ -10,14 +10,19 @@ from sqlalchemy.orm import (DeclarativeBase,
                             )
 from sqlalchemy.types import Float, String,Integer,Date,Text
 
+# Define Target postgres engine 
 ps_uri = 'postgresql+psycopg2://postgres:postgres@localhost:5435/divistant'
-
 ps_engine = create_engine(ps_uri,echo = True )
 
+# Define Base model as parent of all models
 class Base(DeclarativeBase):
     pass
 
+# Define all target models
 class Product(Base):
+    """Product model stored ProductName from Order model and has relationship one-to-many
+    """
+    
     __tablename__ = 'products'
     
     id : Mapped[int] = mapped_column(primary_key = True,
@@ -27,6 +32,9 @@ class Product(Base):
     orders: Mapped[List['Order']] = relationship(back_populates = 'products')
     
 class User(Base):
+    """User model is renamed model from OrderId model and it has relationship on-to-many with Order model.
+    """
+    
     __tablename__ = 'users'
     
     id : Mapped[int] = mapped_column(primary_key = True,
@@ -39,6 +47,9 @@ class User(Base):
 
 
 class Order(Base):
+    """Order model is has 2 relationships such as User and Product
+    """
+    
     __tablename__ = 'orders'
     
     id= mapped_column(Integer,primary_key=True,autoincrement = True)
@@ -53,5 +64,5 @@ class Order(Base):
     product: Mapped['Product'] = relationship(back_populates = 'orders')
 
 
-    
+# Create tables based on defined models
 Base.metadata.create_all(ps_engine)
