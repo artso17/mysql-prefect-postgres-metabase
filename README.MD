@@ -33,8 +33,11 @@ Data Ingestion with ETL Process manages to extract data from source table MySQL 
 
 ## Insights and Findings
 1. Person who have more than 250 transactions
+![query](https://github.com/artso17/mysql-prefect-postgres-metabase/assets/78079780/f810ed9b-1243-4945-b0e2-3dffe997ab91)
+![result_of_query](https://github.com/artso17/mysql-prefect-postgres-metabase/assets/78079780/6b7664b9-30d7-4988-831b-739fbb922934)
    1. The Result says there are 10 people who have more than 250 transactions
 2. Data Visualization
+[Divistant (3).pdf](https://github.com/artso17/mysql-prefect-postgres-metabase/files/14081101/Divistant.3.pdf)
    1. Total sales per product are very fluctuative in range Dec 9, 2001 to Dec 23, 2003.
    2. `Aroma Essence` is the first top in total quantity sold and total sales each product.
    3. Total sales distribution is likely uniform.  
