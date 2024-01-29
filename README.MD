@@ -30,3 +30,11 @@ Data Ingestion with ETL Process manages to extract data from source table MySQL 
   - `etl` function to execute all functions in appropriate sequence and concurrency
   - Simulated Data Ingestion Process by deploying and running `./etl_flow.py` in prefect server
   - Created file contains Data Visualization and Analytics `./media/Divistant(3).pdf` in metabase platform
+
+## Insights and Findings
+1. Person who have more than 250 transactions
+   1. The Result says there are 10 people who have more than 250 transactions
+2. Data Visualization
+   1. Total sales per product are very fluctuative in range Dec 9, 2001 to Dec 23, 2003.
+   2. `Aroma Essence` is the first top in total quantity sold and total sales each product.
+   3. Total sales distribution is likely uniform.  
